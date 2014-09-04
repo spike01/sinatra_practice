@@ -1,0 +1,5 @@
+app.rb
+models/
+views/checker.erb
+views/email_info.erb
+views/index.erb
