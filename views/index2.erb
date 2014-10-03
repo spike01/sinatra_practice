@@ -1,14 +1,16 @@
+<% unless session['me'] %>
 <form method='POST'>
 <input type='text' name='player_name' placeholder="What's your name?"> 
 </form>
-<% if GAME.players.any? %>
-  There are <%= "#{GAME.players.count}" %> players connected<br>
+<% end %>
+<% if @game_started %>
+  There are <%= @count %> players connected<br>
 <% end %>
 
-<% if GAME.players.count >= 1 %>
-  Player 1: <%= "#{GAME.players.first.name}" %><br>
+<% if @count >= 1 %>
+  Player 1: <%= @player1  %><br>
 <% end %>
 
-<% if GAME.players.count == 2 %>
-  Player 2: <%= "#{GAME.players.last.name}" %><br>
+<% if @count == 2 %>
+  Player 2: <%= @player2 %><br>
 <% end %>

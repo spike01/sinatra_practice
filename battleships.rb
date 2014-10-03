@@ -9,6 +9,10 @@ class Battleships < Sinatra::Base
 
   get '/' do
     p GAME
+    @player1 = GAME.player(1)
+    @player2 = GAME.player(2)
+    @count = GAME.count 
+    @game_started = GAME.started?
     erb :index2
   end
 
@@ -20,7 +24,8 @@ class Battleships < Sinatra::Base
   end
 
   get '/reset' do
-    GAME.players= []
+    session.clear
+    GAME.reset!
     redirect to '/'
   end
 end
